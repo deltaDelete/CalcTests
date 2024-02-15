@@ -1,0 +1,36 @@
+<reactiveUi:ReactiveWindow x:TypeArguments="vm:MainWindowViewModel" xmlns="https://github.com/avaloniaui"
+                           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                           xmlns:vm="using:CalculatorApp.ViewModels"
+                           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                           xmlns:reactiveUi="http://reactiveui.net"
+                           mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+                           MinWidth="400"
+                           MinHeight="225"
+                           MaxWidth="600"
+                           MaxHeight="338"
+                           x:Class="CalculatorApp.Views.MainWindow"
+                           x:DataType="vm:MainWindowViewModel"
+                           Icon="/Assets/avalonia-logo.ico"
+                           Title="CalculatorApp">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel />
+    </Design.DataContext>
+
+    <DockPanel LastChildFill="False" Margin="15">
+        <StackPanel DockPanel.Dock="Top" Orientation="Vertical" HorizontalAlignment="Stretch" Spacing="15">
+            <TextBlock FontWeight="Bold" FontSize="24">Умножение</TextBlock>
+            <NumericUpDown Minimum="0" Maximum="1000" Value="{Binding FirstNumber}" />
+            <NumericUpDown Minimum="0" Maximum="1000" Value="{Binding SecondNumber}" />
+            <Label HorizontalAlignment="Center" HorizontalContentAlignment="Center" Content="{Binding ResultString}" />
+            <!-- <Button Content="Умножить" HorizontalAlignment="Center" Command="{Binding MultiplyCommand}" /> -->
+        </StackPanel>
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Vertical" HorizontalAlignment="Stretch" Spacing="15">
+            <TextBlock FontWeight="Bold" FontSize="24">Множители</TextBlock>
+            <NumericUpDown Minimum="0" Maximum="1000" Value="{Binding FactorizeNumber}" />
+            <Label HorizontalAlignment="Center" HorizontalContentAlignment="Center" Content="{Binding Factorized}" />
+        </StackPanel>
+    </DockPanel>
+
+</reactiveUi:ReactiveWindow>
